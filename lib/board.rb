@@ -1,9 +1,11 @@
 require_relative 'square'
 
 class Board
+  attr_accessor :knight_piece
 
   def initialize
     create_board
+    @knight_piece = Knight.new(self)
   end
 
   def create_board
@@ -22,5 +24,9 @@ class Board
       @board_hash[:"row_#{row}"] = square_array
       row += 1
     end
+  end
+
+  def find(coords)
+    @board_hash.values.map { |values| values.select { |value| value.coordinates == coords } }.flatten[0]
   end
 end
