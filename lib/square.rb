@@ -1,12 +1,13 @@
 class Square
-  attr_accessor :coordinates, :vertex, :direct_links
+  attr_accessor :coordinates, :vertex, :direct_links, :parent
 
-  def initialize(x, y, vertex, board)
+  def initialize(x, y, vertex, board, parent = nil)
     @x = x
     @y = y
     @coordinates = [x, y]
     @vertex = vertex
     @@board = board
+    @parent = parent
   end
 
   def direct_moves
